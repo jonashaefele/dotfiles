@@ -57,7 +57,18 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
+
+# Add GoLang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Add paths for NativeScript
+export PATH=$PATH:/ant/apache-ant-1.9.4/bin
+export PATH=$PATH:/Users/jonas/Library/Android/sdk/tools
+export PATH=$PATH:/Users/jonas/Library/Android/sdk/platform-tools
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -74,3 +85,14 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 
 # Postgres Bin
 export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+
+# add ALT + left/rigth arrow to jump back words
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
+###-tns-completion-start-###
+if [ -f /Users/jonas/.tnsrc ]; then
+    source /Users/jonas/.tnsrc
+fi
+###-tns-completion-end-###
